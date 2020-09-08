@@ -1,0 +1,7 @@
+C:\Users\home\Desktop\Labs\Третий Сем\СПП\MyTracer\MyTracer\bin\Debug\MyTracer.exe.config
+C:\Users\home\Desktop\Labs\Третий Сем\СПП\MyTracer\MyTracer\bin\Debug\MyTracer.exe
+C:\Users\home\Desktop\Labs\Третий Сем\СПП\MyTracer\MyTracer\bin\Debug\MyTracer.pdb
+C:\Users\home\Desktop\Labs\Третий Сем\СПП\MyTracer\MyTracer\obj\Debug\MyTracer.csprojAssemblyReference.cache
+C:\Users\home\Desktop\Labs\Третий Сем\СПП\MyTracer\MyTracer\obj\Debug\MyTracer.csproj.CoreCompileInputs.cache
+C:\Users\home\Desktop\Labs\Третий Сем\СПП\MyTracer\MyTracer\obj\Debug\MyTracer.exe
+C:\Users\home\Desktop\Labs\Третий Сем\СПП\MyTracer\MyTracer\obj\Debug\MyTracer.pdb
