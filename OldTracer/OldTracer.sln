@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldTracer", "OldTracer\OldTracer.csproj", "{A4A6AE6E-6B1C-4BEC-9E17-58731297CB9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{ACCA96A9-5007-496A-8878-4E39FC762FAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4A6AE6E-6B1C-4BEC-9E17-58731297CB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4A6AE6E-6B1C-4BEC-9E17-58731297CB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4A6AE6E-6B1C-4BEC-9E17-58731297CB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4A6AE6E-6B1C-4BEC-9E17-58731297CB9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACCA96A9-5007-496A-8878-4E39FC762FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCA96A9-5007-496A-8878-4E39FC762FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCA96A9-5007-496A-8878-4E39FC762FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCA96A9-5007-496A-8878-4E39FC762FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D95FAB21-C1A5-4786-B409-1DFBFF7EA719}
+	EndGlobalSection
+EndGlobal
