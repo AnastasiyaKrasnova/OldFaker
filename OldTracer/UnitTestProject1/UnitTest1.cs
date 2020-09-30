@@ -1,7 +1,10 @@
 using System;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
 using OldTracer;
+
 
 namespace UnitTestProject1
 {
@@ -11,6 +14,7 @@ namespace UnitTestProject1
         private static ITracer _tracer = Tracer.GetInstance();
         private static A _A;
         private static B _B;
+        private static int[] ids;
 
         [TestInitialize]
         public void Setup()
@@ -29,6 +33,7 @@ namespace UnitTestProject1
             thread1.Join();
             thread2.Join();
             _tracer.GetTraceResult();
+            ids = _tracer.GetTraceResult()._threadList.Keys.ToArray<int>();
         }
 
 
@@ -37,23 +42,24 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodNames()
         {
-            Assert.AreEqual("MethodB", _tracer.GetTraceResult()._threadList[14]._methods[0]._nestedStack[1].name);
-            Assert.AreEqual("MethodA1", _tracer.GetTraceResult()._threadList[4]._methods[0]._nestedStack[0]._nestedStack[0].name);
-            Assert.AreEqual("M2", _tracer.GetTraceResult()._threadList[13]._methods[0].name);
+            //int id = Thread.CurrentThread.ManagedThreadId;
+            Assert.AreEqual("MethodB", _tracer.GetTraceResult()._threadList[ids[2]]._methods[0]._nestedStack[1].name);
+            Assert.AreEqual("MethodA1", _tracer.GetTraceResult()._threadList[ids[0]]._methods[0]._nestedStack[0]._nestedStack[0].name);
+            Assert.AreEqual("M2", _tracer.GetTraceResult()._threadList[ids[1]]._methods[0].name);
         }
 
         [TestMethod]
         public void TestMethodClasses()
         {
-            Assert.AreEqual("B", _tracer.GetTraceResult()._threadList[14]._methods[0]._nestedStack[1].classname);
+            Assert.AreEqual("B", _tracer.GetTraceResult()._threadList[ids[2]]._methods[0]._nestedStack[1].classname);
            
         }
 
         [TestMethod]
         public void TestExecutionTime()
         {
-            Assert.IsTrue(_tracer.GetTraceResult()._threadList[13]._methods[0].time > _tracer.GetTraceResult()._threadList[13]._methods[0]._nestedStack[0].time);
-            Assert.IsTrue(_tracer.GetTraceResult()._threadList[4]._methods[0].time == _tracer.GetTraceResult()._threadList[4]._thread_time);
+            Assert.IsTrue(_tracer.GetTraceResult()._threadList[ids[1]]._methods[0].time > _tracer.GetTraceResult()._threadList[ids[1]]._methods[0]._nestedStack[0].time);
+            Assert.IsTrue(_tracer.GetTraceResult()._threadList[ids[0]]._methods[0].time == _tracer.GetTraceResult()._threadList[ids[0]]._thread_time);
         }
 
         [TestMethod]
