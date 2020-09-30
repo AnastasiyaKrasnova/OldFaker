@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
+using OldTracer;
 
-namespace OldTracer
+namespace ConsoleTest
 {
     public class XMLSerialize: ISerializer
     {

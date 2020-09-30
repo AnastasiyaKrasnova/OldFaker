@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OldTracer;
 
-namespace OldTracer
+namespace ConsoleTest
 {
     public class TextSerialize: ISerializer
     {

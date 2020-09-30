@@ -1,4 +1,5 @@
-﻿namespace OldTracer
+﻿using OldTracer;
+namespace ConsoleTest
 {
     public interface ISerializer
     {

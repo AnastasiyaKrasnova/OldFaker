@@ -37,19 +37,19 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISerializer.cs" />
     <Compile Include="ITracer.cs" />
-    <Compile Include="JSONSerialize.cs" />
     <Compile Include="MethodTrace.cs" />
     <Compile Include="Tracer.cs" />
-    <Compile Include="TextSerialize.cs" />
     <Compile Include="ThreadInfo.cs" />
     <Compile Include="TraceResult.cs" />
-    <Compile Include="XMLSerialize.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.UnitTesting.11.0.50727.1\lib\net45\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\dll\Json120r3\Bin\net45\Newtonsoft.Json.dll</HintPath>

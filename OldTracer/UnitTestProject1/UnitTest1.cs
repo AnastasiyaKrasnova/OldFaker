@@ -1,16 +1,19 @@
-﻿using System;
+using System;
 using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OldTracer;
 
-
-namespace ConsoleTest
+namespace UnitTestProject1
 {
-    public class Program
+    [TestClass]
+    public class UnitTest1
     {
         private static ITracer _tracer = Tracer.GetInstance();
         private static A _A;
         private static B _B;
-        public static void Main(string[] args)
+
+        [TestInitialize]
+        public void Setup()
         {
             _tracer.StartTrace();
             Thread thread1 = new Thread(M2);
@@ -26,9 +29,37 @@ namespace ConsoleTest
             thread1.Join();
             thread2.Join();
             _tracer.GetTraceResult();
-            Console.WriteLine(_tracer.GetTraceResult()._threadList[1]._methods[0]._nestedStack[1].name);
-            DisplayResult();
-            Console.ReadKey();
+        }
+
+
+        
+
+        [TestMethod]
+        public void TestMethodNames()
+        {
+            Assert.AreEqual("MethodB", _tracer.GetTraceResult()._threadList[14]._methods[0]._nestedStack[1].name);
+            Assert.AreEqual("MethodA1", _tracer.GetTraceResult()._threadList[4]._methods[0]._nestedStack[0]._nestedStack[0].name);
+            Assert.AreEqual("M2", _tracer.GetTraceResult()._threadList[13]._methods[0].name);
+        }
+
+        [TestMethod]
+        public void TestMethodClasses()
+        {
+            Assert.AreEqual("B", _tracer.GetTraceResult()._threadList[14]._methods[0]._nestedStack[1].classname);
+           
+        }
+
+        [TestMethod]
+        public void TestExecutionTime()
+        {
+            Assert.IsTrue(_tracer.GetTraceResult()._threadList[13]._methods[0].time > _tracer.GetTraceResult()._threadList[13]._methods[0]._nestedStack[0].time);
+            Assert.IsTrue(_tracer.GetTraceResult()._threadList[4]._methods[0].time == _tracer.GetTraceResult()._threadList[4]._thread_time);
+        }
+
+        [TestMethod]
+        public void TestCountThread()
+        {
+            Assert.AreEqual(3, _tracer.GetTraceResult()._threadList.Count);
         }
 
         public static void M2()
@@ -36,20 +67,11 @@ namespace ConsoleTest
             _tracer.StartTrace();
             _A.MethodA();
             Thread.Sleep(200);
+            _B.MethodB();
             _tracer.StopTrace();
         }
-
-        static void DisplayResult()
-        {
-            ISerializer _serializer;
-            _serializer = new TextSerialize();
-            _serializer.Serialize(_tracer.GetTraceResult());
-            _serializer = new XMLSerialize();
-            _serializer.Serialize(_tracer.GetTraceResult());
-            _serializer = new JSONSerialize();
-            _serializer.Serialize(_tracer.GetTraceResult());
-        }
     }
+
     public class A
     {
         private ITracer _trace;
@@ -73,7 +95,7 @@ namespace ConsoleTest
         public void MethodA1()
         {
             _trace.StartTrace();
-           for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 fl = true;
                 MethodA();
@@ -97,4 +119,5 @@ namespace ConsoleTest
         }
     }
 }
+
 
