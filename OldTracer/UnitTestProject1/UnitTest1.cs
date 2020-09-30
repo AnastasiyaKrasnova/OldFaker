@@ -11,7 +11,7 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
-        private static ITracer _tracer = Tracer.GetInstance();
+        private static ITracer _tracer = new Tracer();
         private static A _A;
         private static B _B;
         private static int[] ids;

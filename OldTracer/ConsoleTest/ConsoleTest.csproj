@@ -37,9 +37,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\dll\Json120r3\Bin\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="OldTracer">
-      <HintPath>..\OldTracer\bin\Debug\OldTracer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OldTracer\OldTracer.csproj">
+      <Project>{a4a6ae6e-6b1c-4bec-9e17-58731297cb9e}</Project>
+      <Name>OldTracer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

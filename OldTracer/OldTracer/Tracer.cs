@@ -8,11 +8,9 @@ namespace OldTracer
     public class Tracer : ITracer
     {
         private TraceResult _traceResult;
-
-        private static Tracer Instance;
         private static readonly object SyncRoot = new object();
 
-        private Tracer()
+        public Tracer()
         {
             _traceResult = new TraceResult();
         }
@@ -34,22 +32,6 @@ namespace OldTracer
         public TraceResult GetTraceResult()
         {
             return _traceResult;
-        }
-
-        public static Tracer GetInstance()
-        {
-            if (Instance == null)
-            {
-                lock (SyncRoot)
-                {
-                    if (Instance == null)
-                    {
-                        Instance = new Tracer();
-                    }
-                }
-            }
-
-            return Instance;
         }
     }
 }

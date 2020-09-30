@@ -7,7 +7,7 @@ namespace ConsoleTest
 {
     public class Program
     {
-        private static ITracer _tracer = Tracer.GetInstance();
+        private static ITracer _tracer = new Tracer();
         private static A _A;
         private static B _B;
         public static void Main(string[] args)
