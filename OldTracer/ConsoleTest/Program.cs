@@ -26,7 +26,6 @@ namespace ConsoleTest
             thread1.Join();
             thread2.Join();
             _tracer.GetTraceResult();
-            Console.WriteLine(_tracer.GetTraceResult()._threadList[1]._methods[0]._nestedStack[1].name);
             DisplayResult();
             Console.ReadKey();
         }
@@ -36,6 +35,7 @@ namespace ConsoleTest
             _tracer.StartTrace();
             _A.MethodA();
             Thread.Sleep(200);
+            _B.MethodB();
             _tracer.StopTrace();
         }
 
