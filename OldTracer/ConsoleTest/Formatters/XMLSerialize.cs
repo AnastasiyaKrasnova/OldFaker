@@ -9,11 +9,10 @@ namespace ConsoleTest
     public class XMLSerialize: ISerializer
     {
 
-        public void Serialize(TraceResult traceResult)
+        public string Serialize(TraceResult traceResult)
         {
-            var doc = new XDocument();
+            XDocument doc = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             var root = new XElement("root");
-
             foreach (KeyValuePair<int, ThreadInfo> threadInfo in traceResult._threadList)
             {
                 var thread = new XElement("thread");
@@ -27,11 +26,9 @@ namespace ConsoleTest
 
                 root.Add(thread);
             }
-
             doc.Add(root);
-            FileStream fs = File.Create("TraceResult.xml");
-            doc.Save(fs);
-            fs.Dispose();
+            string str = doc.Declaration.ToString()+"\n"+ doc.ToString();
+            return str;
         }
 
         private static XElement FormMethodData(MethodTrace methodTrace)

@@ -1,38 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using OldTracer;
 
 namespace ConsoleTest
 {
     public class TextSerialize: ISerializer
     {
-        public void Serialize(TraceResult traceResult)
+        public string Serialize(TraceResult traceResult)
         {
+            StringBuilder str = new StringBuilder();
             foreach (KeyValuePair<int, ThreadInfo> threadInfo in traceResult._threadList)
             {
-                Console.WriteLine($"id: {threadInfo.Key}, time: {threadInfo.Value._thread_time}");
+                str.AppendLine($"id: {threadInfo.Key}, time: {threadInfo.Value._thread_time}");
                 foreach (MethodTrace tracedMethod in threadInfo.Value._methods)
                 {
-                    DisplayMethods(tracedMethod);
+                    str.AppendLine(DisplayMethods(tracedMethod));
                 }
             }
+            return str.ToString();
         }
 
-        private void DisplayMethods(MethodTrace mth, int level = 0)
+        private string DisplayMethods(MethodTrace mth, int level = 0)
         {
+            StringBuilder str = new StringBuilder();
             string tab = string.Format($"{{0, {level * 4 + 1}}}", string.Empty);
-
-            Console.WriteLine($"{tab}method: {mth.name}");
-            Console.WriteLine($"{tab}class: {mth.classname}");
-            Console.WriteLine($"{tab}time: {mth.time} ms");
+            str.AppendLine($"{tab}method: {mth.name}");
+            str.AppendLine($"{tab}class: {mth.classname}");
+            str.AppendLine($"{tab}time: {mth.time} ms");
 
             foreach (MethodTrace nestedmth in mth._nestedStack)
             {
-                DisplayMethods(nestedmth, level + 1);
+                str.AppendLine(DisplayMethods(nestedmth,level + 1));
             }
+
+            return str.ToString();
         }
     }
 }

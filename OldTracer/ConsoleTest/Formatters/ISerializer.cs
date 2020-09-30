@@ -3,6 +3,6 @@ namespace ConsoleTest
 {
     public interface ISerializer
     {
-         void Serialize(TraceResult traceResult);
+         string Serialize(TraceResult traceResult);
     }
 }

@@ -42,12 +42,13 @@ namespace ConsoleTest
         static void DisplayResult()
         {
             ISerializer _serializer;
+            IWriter _writer=new Writer();
             _serializer = new TextSerialize();
-            _serializer.Serialize(_tracer.GetTraceResult());
+            _writer.Write(_serializer.Serialize(_tracer.GetTraceResult()),"");
             _serializer = new XMLSerialize();
-            _serializer.Serialize(_tracer.GetTraceResult());
+            _writer.Write(_serializer.Serialize(_tracer.GetTraceResult()),"TraceResult.xml");
             _serializer = new JSONSerialize();
-            _serializer.Serialize(_tracer.GetTraceResult());
+            _writer.Write(_serializer.Serialize(_tracer.GetTraceResult()),"TraceResult.json");
         }
     }
     public class A

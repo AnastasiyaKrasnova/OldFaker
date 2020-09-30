@@ -51,8 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Formatters\ISerializer.cs" />
+    <Compile Include="Writer\IWriter.cs" />
     <Compile Include="Formatters\JSONSerialize.cs" />
     <Compile Include="Formatters\TextSerialize.cs" />
+    <Compile Include="Writer\Writer.cs" />
     <Compile Include="Formatters\XMLSerialize.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

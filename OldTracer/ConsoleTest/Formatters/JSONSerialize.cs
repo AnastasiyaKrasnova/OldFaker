@@ -8,7 +8,7 @@ namespace ConsoleTest
 {
     public class JSONSerialize: ISerializer
     {
-        public void Serialize(TraceResult traceResult)
+        public string Serialize(TraceResult traceResult)
         {
             JSONFile jsfile = new JSONFile();
             jsfile.threads = new List<ThreadstoJson>();
@@ -25,7 +25,7 @@ namespace ConsoleTest
                 }
                 jsfile.threads.Add(threadjs);
             }
-            JSONConfig(jsfile);
+            return JSONConfig(jsfile);
         }
 
         private MethodtoJson TransformMethodInfo(MethodTrace methodTrace)
@@ -44,14 +44,15 @@ namespace ConsoleTest
             return mth;
         }
 
-        private void JSONConfig(JSONFile jsfile)
+        private string JSONConfig(JSONFile jsfile)
         {
             //JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-            string serialized = JsonConvert.SerializeObject(jsfile);
-            FileStream fs = File.Create("TraceResult.json");
+            string serialized = JsonConvert.SerializeObject(jsfile,Formatting.Indented);
+            /*FileStream fs = File.Create("TraceResult.json");
             byte[] ret = System.Text.Encoding.UTF8.GetBytes(serialized);
             fs.Write(ret, 0, ret.Length);
-            fs.Dispose();
+            fs.Dispose();*/
+            return serialized;
         }
     }
 

@@ -25,8 +25,7 @@ namespace OldTracer
 
         internal void StopTrace()
         {
-            _nestedStack.Peek().StopTrace();
-            _nestedStack.Pop();
+            _nestedStack.Pop().StopTrace();
             _thread_time = _methods[0].time;
         }   
     }
