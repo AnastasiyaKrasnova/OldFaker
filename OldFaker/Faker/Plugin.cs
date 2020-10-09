@@ -9,9 +9,9 @@ namespace Faker
     class Plugin
     {
 		public List<IGenerator> Plugins;
-		private readonly string pluginPath;
+		private string pluginPath;
 
-		internal Plugin()
+		public Plugin()
 		{
 			Plugins = new List<IGenerator>();
 			pluginPath = Path.Combine(Directory.GetCurrentDirectory(), "Plugins");

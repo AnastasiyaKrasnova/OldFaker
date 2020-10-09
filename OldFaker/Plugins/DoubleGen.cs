@@ -6,7 +6,7 @@ namespace Plugins
 {
     public class DoubleGen: IGenerator
 	{
-		public Type[] PossibleTypes => new[] { typeof(double) };
+		public Type[] PossibleTypes => new Type[] { typeof(double) };
 		private const int minPow = -323, maxPow = 309;
 		private Random _numGen;
 
@@ -17,7 +17,7 @@ namespace Plugins
 
 		public DoubleGen(Random numGen)
 		{
-			_numGen = numGen ?? throw new ArgumentNullException();
+			_numGen = numGen;
 		}
 
 		public object Generate(Type type)

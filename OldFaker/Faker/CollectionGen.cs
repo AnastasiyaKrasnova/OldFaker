@@ -7,12 +7,12 @@ namespace Faker
 {
     class CollectionGen: IGenerator
     {
-		public Type[] PossibleTypes => new[] { typeof(List<>), typeof(Stack<>), typeof(Queue<>) };
+		public Type[] PossibleTypes => new Type[]{ typeof(List<>), typeof(Stack<>), typeof(Queue<>) };
 		private ObjectCreator _objCreator;
 
 		public CollectionGen(ObjectCreator objCreator)
 		{
-			_objCreator = objCreator ?? throw new ArgumentNullException();
+			_objCreator = objCreator;
 		}
 
 		public object Generate(Type type)

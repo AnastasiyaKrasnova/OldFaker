@@ -13,7 +13,7 @@ namespace Faker
 
 		public ArrayGen(Random numGen, ObjectCreator objCreator)
 		{
-			_objCreator = objCreator ?? throw new ArgumentNullException();
+			_objCreator = objCreator;
 			_numGen = numGen ?? throw new ArgumentNullException();
 		}
 

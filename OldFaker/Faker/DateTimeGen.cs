@@ -11,7 +11,7 @@ namespace Faker
 
 		public DateTimeGen(Random numGen)
 		{
-			_numGen = numGen ?? throw new ArgumentNullException();
+			_numGen = numGen;
 		}
 		public object Generate(Type type)
 		{

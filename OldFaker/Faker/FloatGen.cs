@@ -5,13 +5,13 @@ namespace Faker
 {
     class FloatGen: IGenerator
     {
-		public Type[] PossibleTypes => new[] { typeof(float) };
+		public Type[] PossibleTypes => new Type[] { typeof(float) };
 		private const int minPow = -44, maxPow = 39;
 		private Random _numGen;
 
 		public FloatGen(Random numGen)
 		{
-			_numGen = numGen ?? throw new ArgumentNullException();
+			_numGen = numGen;
 		}
 
 		public object Generate(Type type)

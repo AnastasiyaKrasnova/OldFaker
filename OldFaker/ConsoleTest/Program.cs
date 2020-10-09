@@ -19,7 +19,7 @@ namespace ConsoleTest
 		public TestStruct TStruct { get; set; }
 		public int[,,] Prop { get; set; }
 		public long Prop2 { get; set; }
-		public Queue<int[]> list { get; set; }
+		public Queue<List<int[]>> list { get; set; }
 		public Test2 Test1 { get; set; }
 		public Test2 Test2 { get; set; }
 		public string String { get; set; }
@@ -50,9 +50,6 @@ namespace ConsoleTest
 		{
 			OldFaker creator = new OldFaker();
 			Test test = creator.Create<Test>();
-			Console.WriteLine(test.Prop2);
-			Console.WriteLine(test.DateTime);
-			Console.WriteLine(test.Test2.Test1.test);
 			Console.ReadLine();
 		}
 	}
